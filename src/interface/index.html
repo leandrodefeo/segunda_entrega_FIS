@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copa America 2024</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand">
+      <a class="navbar-brand ps-2" href="#">Copa America 2024</a>
+      <div class="nav nav-pills" id="nav-tab" role="tablist">
+        <button
+          class="nav-link active me-3"
+          id="nav-resume-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-resume"
+          type="button"
+          role="tab"
+          aria-controls="nav-resume"
+          aria-selected="true"
+        >
+        resumen
+        </button>
+        <button
+          class="nav-link"
+          id="nav-teams-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-teams"
+          type="button"
+          role="tab"
+          aria-controls="nav-teams"
+          aria-selected="false"
+        >
+        Equipos
+        </button>
+      </div>
+    </nav>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
+<div class="container">
+  <h1>Partidos</h1>
+  <div class="matches">
+   <!-- Ejemplo con un partido, luego agrego mas-->
+    <div class="match-block">
+      <div class="match-info">
+        <p>Fase de grupos · Jornada 3 de 3</p>
+        <p>Jamaica 0 - 3 Venezuela</p>
+        <p>Fin · Dom, 30/6</p>
+      </div>
+      <div class="match-video">
+        <img src="video-jam-ven.jpg" alt="Video" />
+      </div>
+    </div>
+  </div>
+  <button id="btn-more-matches">Más partidos</button>
+  <div class="positions">
+    <h2>Posiciones</h2>
+    <div class="group">
+      <h3>Grupo A</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Club</th>
+            <th>PJ</th>
+            <th>G</th>
+            <th>E</th>
+            <th>P</th>
+            <th>GF</th>
+            <th>GC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ejemplo con argentina, luego agrego mas paises -->>
+          <tr>
+            <td>Argentina</td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>5</td>
+            <td>0</td>
+          </tr>    
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="stats">
+    <h2>Líderes de estadísticas</h2>
+    <div class="stats-tabs">
+      <button id="btn-goals" class="active">Goles</button>
+      <button id="btn-assists">Asistencias</button>
+      <button id="btn-yellow-cards">Tarjetas amarillas</button>
+      <button id="btn-red-cards">Tarjetas rojas</button>
+    </div>
+  </div>
+</div>
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+crossorigin="anonymous"
+></script>
+<script src="main.js" type="module"></script>
+</body>
+</html>
