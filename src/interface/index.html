@@ -1,108 +1,303 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Copa America 2024</title>
+    <meta name="description" content=" Pagina de la Copa América 2024." />
+    <title>Copa América 2024</title>
     <link rel="icon" href="./favicon.ico" />
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link href="style.css" rel="stylesheet" />
   </head>
   <body>
     <nav class="navbar navbar-expand">
-      <a class="navbar-brand ps-2" href="#">Copa America 2024</a>
+      <a class="navbar-brand ps-2" href="#">Copa América 2024</a>
       <div class="nav nav-pills" id="nav-tab" role="tablist">
         <button
           class="nav-link active me-3"
-          id="nav-resume-tab"
+          id="nav-resumen-tab"
           data-bs-toggle="tab"
-          data-bs-target="#nav-resume"
+          data-bs-target="#nav-resumen"
           type="button"
           role="tab"
-          aria-controls="nav-resume"
+          aria-controls="nav-resumen"
           aria-selected="true"
         >
-        resumen
+          Resumen
         </button>
         <button
           class="nav-link"
-          id="nav-teams-tab"
+          id="nav-add-country-tab"
           data-bs-toggle="tab"
-          data-bs-target="#nav-teams"
+          data-bs-target="#nav-add-country"
           type="button"
           role="tab"
-          aria-controls="nav-teams"
+          aria-controls="nav-add-country"
           aria-selected="false"
         >
-        Equipos
+          Agregar país
+        </button>
+        <button
+          class="nav-link"
+          id="nav-add-matches-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-add-matches"
+          type="button"
+          role="tab"
+          aria-controls="nav-add-matches"
+          aria-selected="false"
+        >
+          Agregar partidos
+        </button>
+        <button
+          class="nav-link"
+          id="nav-countries-list-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-countries-list"
+          type="button"
+          role="tab"
+          aria-controls="nav-countries-list"
+          aria-selected="false"
+        >
+          Lista países
         </button>
       </div>
     </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-resumen"
+        role="tabpanel"
+        aria-labelledby="nav-resumen-tab"
+      >
+        <h1>Partidos</h1>
+        <div class="matches" id="matches-list">
+          <!-- Ejemplo con un partido, luego agrego mas-->
+          <div class="match-block">
+            <div class="match-info">
+              <p>Fase de grupos · Jornada 3 de 3</p>
+              <p>Jamaica 0 - 3 Venezuela</p>
+              <p>Fin · Dom, 30/6</p>
+            </div>
+            <div class="match-video">
+              <img src="video-jam-ven.jpg" alt="Video" />
+            </div>
+          </div>
+        </div>
+        <p id="empty-matches-list" class="d-none">No hay partidos agregados.</p>
+        <button id="btn-more-matches">Más partidos</button>
+        <!-- Tabla de posiciones -->
+        <div class="positions">
+          <h2>Posiciones</h2>
+          <div class="group">
+            <h3>Grupo A</h3>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Club</th>
+                  <th>PJ</th>
+                  <th>G</th>
+                  <th>E</th>
+                  <th>P</th>
+                  <th>GF</th>
+                  <th>GC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- ejemplo con argentina, luego agrego mas paises -->
+                <tr>
+                  <td>Argentina</td>
+                  <td>3</td>
+                  <td>3</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>5</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="stats">
+          <h2>Líderes de estadísticas</h2>
+          <div class="stats-tabs">
+            <button id="btn-goals" class="active">Goles</button>
+            <button id="btn-assists">Asistencias</button>
+            <button id="btn-yellow-cards">Tarjetas amarillas</button>
+            <button id="btn-red-cards">Tarjetas rojas</button>
+          </div>
+        </div>
+      </div>
+      <!-- Agregar partidos (dinamico) -->
+      <div
+        class="tab-pane fade"
+        id="nav-add-matches"
+        role="tabpanel"
+        aria-labelledby="nav-add-matches-tab"
+      >
+        <div class="container shadow bg-white rounded" id="alerts-add-matches">
+          <div class="row">
+            <div class="col-sm pt-2 px-4">
+              <h1 class="title">Agregar Partido</h1>
+              <form id="add-matches-form">
+                <div class="row">
+                  <div class="col-sm">
+                    <label for="inp-Country1" class="form-label">Pais 1:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inp-Country1"
+                      name="Country"
+                      placeholder="Ingrese el nombre del Pais 1"
+                      required
+                    />
+                  </div>
+                  <div class="col-sm">
+                    <label for="inp-Country2" class="form-label">Pais 2:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inp-Country2"
+                      name="Country2"
+                      placeholder="Ingrese el nombre del Pais 2"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm">
+                    <label for="inp-score" class="form-label">Resultado:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inp-score"
+                      name="score"
+                      placeholder="Ej. 0 - 0"
+                      required
+                    />
+                  </div>
+                  <div class="col-sm">
+                    <label for="inp-date" class="form-label">Fecha:</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="inp-date"
+                      name="date"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="d-none" id="add-matches-error">
+                  <p class="text-danger pt-2" id="add-matches-error-msg"></p>
+                </div>
+                <div class="row-sm py-3 text-end">
+                  <button
+                    id="btn-add-matches"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Agregar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Agregar paises-->
+      <div
+        class="tab-pane fade"
+        id="nav-add-country"
+        role="tabpanel"
+        aria-labelledby="nav-add-country-tab"
+      >
+        <div class="row justify-content-end px-5" style="width: 100%">
+          <div class="col-8 col-lg-4 col-xs-8" id="alerts-add-country"></div>
+        </div>
+        <div class="container shadow bg-white rounded">
+          <div class="row">
+            <div class="col-sm p-0 fill">
+              <img
+                src="./img/countries-flags.jpg"
+                alt="Flags"
+                id="add-countries-image"
+                class="rounded-start"
+              />
+            </div>
+            <div class="col-sm pt-2 px-4">
+              <h1 class="title">Registro de países</h1>
+              <form id="register-form">
+                <div class="row">
+                  <div class="col-sm">
+                    <label for="inp-name" class="form-label">Nombre:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inp-name"
+                      name="name"
+                      placeholder="Ingrese el nombre"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm pt-3">
+                    <label for="inp-capital" class="form-label">Capital:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inp-capital"
+                      name="capital"
+                      placeholder="Ingrese la capital"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="d-none" id="add-countries-error">
+                  <p class="text-danger pt-2" id="add-countries-error-msg"></p>
+                </div>
+                <div class="row-sm py-3 text-end">
+                  <button id="btn-add" type="button" class="btn btn-primary">
+                    Agregar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Listar paises -->
+      <div
+        class="tab-pane fade"
+        id="nav-countries-list"
+        role="tabpanel"
+        aria-labelledby="nav-countries-list-tab"
+      >
+        <h2
+          class="position-absolute top-50 start-50 translate-middle"
+          id="empty-list"
+        >
+          No ha ingresado ningún país :(
+        </h2>
+        <div
+          id="countries"
+          class="container shadow bg-white rounded mt-4 p-2 d-none"
+        >
+          <h1 class="title ps-2">Países:</h1>
+          <ul id="countries-list" class="list-group-numbered"></ul>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
     <script src="main.js" type="module"></script>
   </body>
-</html>
-<div class="container">
-  <h1>Partidos</h1>
-  <div class="matches">
-   <!-- Ejemplo con un partido, luego agrego mas-->
-    <div class="match-block">
-      <div class="match-info">
-        <p>Fase de grupos · Jornada 3 de 3</p>
-        <p>Jamaica 0 - 3 Venezuela</p>
-        <p>Fin · Dom, 30/6</p>
-      </div>
-      <div class="match-video">
-        <img src="video-jam-ven.jpg" alt="Video" />
-      </div>
-    </div>
-  </div>
-  <button id="btn-more-matches">Más partidos</button>
-  <div class="positions">
-    <h2>Posiciones</h2>
-    <div class="group">
-      <h3>Grupo A</h3>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Club</th>
-            <th>PJ</th>
-            <th>G</th>
-            <th>E</th>
-            <th>P</th>
-            <th>GF</th>
-            <th>GC</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- ejemplo con argentina, luego agrego mas paises -->>
-          <tr>
-            <td>Argentina</td>
-            <td>3</td>
-            <td>3</td>
-            <td>0</td>
-            <td>0</td>
-            <td>5</td>
-            <td>0</td>
-          </tr>    
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="stats">
-    <h2>Líderes de estadísticas</h2>
-    <div class="stats-tabs">
-      <button id="btn-goals" class="active">Goles</button>
-      <button id="btn-assists">Asistencias</button>
-      <button id="btn-yellow-cards">Tarjetas amarillas</button>
-      <button id="btn-red-cards">Tarjetas rojas</button>
-    </div>
-  </div>
-</div>
-
-<script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-crossorigin="anonymous"
-></script>
-<script src="main.js" type="module"></script>
-</body>
 </html>
