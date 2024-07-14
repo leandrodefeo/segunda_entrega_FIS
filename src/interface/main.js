@@ -13,6 +13,9 @@ const inpCountry2 = document.getElementById('inp-Country2');
 const inpScore = document.getElementById('inp-score');
 const inpDate = document.getElementById('inp-date');
 
+const moreMatchesContainer = document.getElementById('more-matches-container');
+const btnMoreMatches = document.getElementById('btn-more-matches');
+
 const mainCountryList = new CountryList();
 const mainMatchesList = new MatchesList();
 
@@ -88,6 +91,7 @@ btnAddMatches.addEventListener('click', () => {
   newMatch.setCountry2(inpCountry2.value);
   newMatch.setScore(inpScore.value);
   newMatch.setDate(inpDate.value);
+  newMatch.setStage(inpStage.value);
 
   try {
     if (newMatch.isValid()) {
@@ -98,7 +102,7 @@ btnAddMatches.addEventListener('click', () => {
         'Partido agregado correctamente!',
         'success'
       );
-      loadMatchesList(newMatch);
+      addMatchToAdditionalList(newMatch);
     }
   } catch (error) {
     matchesErrorContainer.classList.remove('d-none');
@@ -106,24 +110,40 @@ btnAddMatches.addEventListener('click', () => {
   }
 });
 
-function loadMatchesList(newMatch) {
-  const matchesList = document.getElementById('matches-list');
+function addMatchToAdditionalList(newMatch) {
   const emptyMatchesList = document.getElementById('empty-matches-list');
-
   emptyMatchesList.classList.add('d-none');
 
   let li = document.createElement('li');
   li.classList.add('list-group-item');
+
   let p1 = document.createElement('p');
-  p1.textContent = `${newMatch.getCountry1()} ${newMatch.getScore()} ${newMatch.getCountry2()}`;
+  p1.textContent = `${newMatch.getCountry1()} ${
+    newMatch.getScore().split('-')[0]
+  }`;
 
   let p2 = document.createElement('p');
-  p2.textContent = `Fecha: ${newMatch.getDate()}`;
+  p2.textContent = `${newMatch.getCountry2()} ${
+    newMatch.getScore().split('-')[1]
+  }`;
 
+  let p3 = document.createElement('p');
+  p3.textContent = `Fecha: ${newMatch.getDate()}`;
+
+  let p4 = document.createElement('p');
+  p4.textContent = `${newMatch.getStage()}`;
+
+  li.appendChild(p4);
   li.appendChild(p1);
   li.appendChild(p2);
-  matchesList.appendChild(li);
+  li.appendChild(p3);
+
+  moreMatchesContainer.appendChild(li);
 }
+
+btnMoreMatches.addEventListener('click', () => {
+  moreMatchesContainer.classList.toggle('d-none');
+});
 
 function clearInputs2() {
   inpCountry1.value = '';

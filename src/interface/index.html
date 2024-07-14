@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Pagina de la Copa América 2024." />
+    <meta name="description" content="Pagina de la Copa América 2024." />
     <title>Copa América 2024</title>
     <link rel="icon" href="./favicon.ico" />
     <link
@@ -75,61 +75,110 @@
         role="tabpanel"
         aria-labelledby="nav-resumen-tab"
       >
-        <h1>Partidos</h1>
-        <div class="matches" id="matches-list">
-          <!-- Ejemplo con un partido, luego agrego mas-->
-          <div class="match-block">
-            <div class="match-info">
-              <p>Fase de grupos · Jornada 3 de 3</p>
-              <p>Jamaica 0 - 3 Venezuela</p>
-              <p>Fin · Dom, 30/6</p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h1>Partidos</h1>
+              <div class="matches" id="matches-list">
+                <!-- Ejemplo con un partido, luego agrego mas-->
+                <div class="match-block">
+                  <div class="match-info">
+                    <p>Fase de grupos · Jornada 3 de 3</p>
+                    <p>Jamaica 0 - 3 Venezuela</p>
+                    <p>Fin · Dom, 30/6</p>
+                  </div>
+                  <div class="match-video">
+                    <img src="video-jam-ven.jpg" alt="Video" />
+                  </div>
+                </div>
+              </div>
+              <p id="empty-matches-list" class="d-none">
+                No hay partidos agregados.
+              </p>
+              <button id="btn-more-matches">Más partidos</button>
+              <div id="more-matches-container" class="d-none">
+                <!-- Aca se agregan mas partidos -->
+              </div>
             </div>
-            <div class="match-video">
-              <img src="video-jam-ven.jpg" alt="Video" />
+            <div class="col-md-4">
+              <!-- Tabla de posiciones -->
+              <div class="positions">
+                <h2>Posiciones</h2>
+                <div class="group">
+                  <h3>Grupo A</h3>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Club</th>
+                        <th>PJ</th>
+                        <th>G</th>
+                        <th>E</th>
+                        <th>P</th>
+                        <th>GF</th>
+                        <th>GC</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- ejemplo con argentina, luego agrego mas paises -->
+                      <tr>
+                        <td>Argentina</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>Canadá</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>Chile</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>Perú</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>3</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- Líderes de estadísticas -->
+              <div class="stats">
+                <h2 class="section-title">Líderes de estadísticas</h2>
+                <div class="stats-tabs">
+                  <button id="btn-goals" class="button-primary active">
+                    Goles
+                  </button>
+                  <button id="btn-assists" class="button-primary">
+                    Asistencias
+                  </button>
+                  <button id="btn-yellow-cards" class="button-primary">
+                    Tarjetas amarillas
+                  </button>
+                  <button id="btn-red-cards" class="button-primary">
+                    Tarjetas rojas
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <p id="empty-matches-list" class="d-none">No hay partidos agregados.</p>
-        <button id="btn-more-matches">Más partidos</button>
-        <!-- Tabla de posiciones -->
-        <div class="positions">
-          <h2>Posiciones</h2>
-          <div class="group">
-            <h3>Grupo A</h3>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Club</th>
-                  <th>PJ</th>
-                  <th>G</th>
-                  <th>E</th>
-                  <th>P</th>
-                  <th>GF</th>
-                  <th>GC</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- ejemplo con argentina, luego agrego mas paises -->
-                <tr>
-                  <td>Argentina</td>
-                  <td>3</td>
-                  <td>3</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>5</td>
-                  <td>0</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="stats">
-          <h2>Líderes de estadísticas</h2>
-          <div class="stats-tabs">
-            <button id="btn-goals" class="active">Goles</button>
-            <button id="btn-assists">Asistencias</button>
-            <button id="btn-yellow-cards">Tarjetas amarillas</button>
-            <button id="btn-red-cards">Tarjetas rojas</button>
           </div>
         </div>
       </div>
@@ -145,6 +194,17 @@
             <div class="col-sm pt-2 px-4">
               <h1 class="title">Agregar Partido</h1>
               <form id="add-matches-form">
+                <div class="col-sm">
+                  <label for="inpStage" class="form-label">Etapa:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inpStage"
+                    name="stage"
+                    placeholder="Ingrese la etapa de la Copa América"
+                    required
+                  />
+                </div>
                 <div class="row">
                   <div class="col-sm">
                     <label for="inp-Country1" class="form-label">Pais 1:</label>

@@ -3,9 +3,14 @@ export class Matches {
   #Country2;
   #score;
   #date;
+  #stage;
 
   constructor(aCountry1) {
     this.#Country1 = aCountry1;
+  }
+
+  getStage() {
+    return this.#stage;
   }
 
   getCountry1() {
@@ -36,10 +41,14 @@ export class Matches {
     this.#date = aDate;
   }
 
+  setStage(aStage) {
+    this.#stage = aStage;
+  }
+
   toString() {
     return `Pais1: ${this.#Country1} - Pais2: ${this.#Country2} - Score: ${
       this.#score
-    } \nDate: ${this.#date}`;
+    } \nDate: ${this.#date} stage: ${this.#stage} `;
   }
 
   isValid() {
@@ -66,6 +75,13 @@ export class Matches {
     }
     if (this.#date === undefined || this.#date === null || this.#date === '') {
       throw new Error('Error: La fecha no puede estar vacía');
+    }
+    if (
+      this.#stage === undefined ||
+      this.#stage === null ||
+      this.#stage === ''
+    ) {
+      throw new Error('Error: La etapa de la copa no puede estar vacía');
     }
     return true;
   }

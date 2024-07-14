@@ -1,15 +1,40 @@
-.navbar {
-    margin-bottom: 40px;
-    background-color: rgba(237, 237, 237, 0.950);
+.stats-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
-#add-countries-image {
-    width: 100%;
-    height: 100%;
+.stats-tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.error-container {
-    position: absolute;
-    bottom: 0;
-    right: 20px;
+.stats-tabs button {
+  background-color: rgb(231, 227, 237);
+  color: rgb(14, 14, 14);
+  padding: 4px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+}
+
+.stats-tabs button:hover {
+  background-color: rgba(55, 0, 179, 1);
+}
+
+.list-group-item p {
+  margin-bottom: 1px;
+}
+
+.match-info {
+  margin-bottom: 10px;
+}
+
+.match-info p {
+  margin-bottom: 5px;
 }
