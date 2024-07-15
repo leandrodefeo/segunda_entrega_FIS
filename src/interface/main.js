@@ -12,6 +12,7 @@ const inpCountry1 = document.getElementById('inp-Country1');
 const inpCountry2 = document.getElementById('inp-Country2');
 const inpScore = document.getElementById('inp-score');
 const inpDate = document.getElementById('inp-date');
+const inpStage = document.getElementById('inpStage');
 
 const moreMatchesContainer = document.getElementById('more-matches-container');
 const btnMoreMatches = document.getElementById('btn-more-matches');
@@ -94,9 +95,13 @@ btnAddMatches.addEventListener('click', () => {
   newMatch.setStage(inpStage.value);
 
   try {
+    if (inpStage.value.trim() === '') {
+      throw new Error('Error: La etapa de la copa no puede estar vacía');
+    }
     if (newMatch.isValid()) {
       mainMatchesList.add(newMatch);
       clearInputs2();
+      matchesErrorContainer.classList.add('d-none');
       appendAlert(
         alertPlaceholder2,
         'Partido agregado correctamente!',
@@ -114,31 +119,36 @@ function addMatchToAdditionalList(newMatch) {
   const emptyMatchesList = document.getElementById('empty-matches-list');
   emptyMatchesList.classList.add('d-none');
 
-  let li = document.createElement('li');
-  li.classList.add('list-group-item');
+  let matchBlock = document.createElement('div');
+  matchBlock.classList.add('match-block');
 
-  let p1 = document.createElement('p');
-  p1.textContent = `${newMatch.getCountry1()} ${
+  let matchInfo = document.createElement('div');
+  matchInfo.classList.add('match-info');
+
+  let stage = document.createElement('p');
+  stage.textContent = `${newMatch.getStage()}`;
+
+  let country1 = document.createElement('p');
+  country1.textContent = `${newMatch.getCountry1()} ${
     newMatch.getScore().split('-')[0]
   }`;
 
-  let p2 = document.createElement('p');
-  p2.textContent = `${newMatch.getCountry2()} ${
+  let country2 = document.createElement('p');
+  country2.textContent = `${newMatch.getCountry2()} ${
     newMatch.getScore().split('-')[1]
   }`;
 
-  let p3 = document.createElement('p');
-  p3.textContent = `Fecha: ${newMatch.getDate()}`;
+  let date = document.createElement('p');
+  date.textContent = `${newMatch.getDate()}`;
 
-  let p4 = document.createElement('p');
-  p4.textContent = `${newMatch.getStage()}`;
+  matchInfo.appendChild(stage);
+  matchInfo.appendChild(country1);
+  matchInfo.appendChild(country2);
+  matchInfo.appendChild(date);
 
-  li.appendChild(p4);
-  li.appendChild(p1);
-  li.appendChild(p2);
-  li.appendChild(p3);
+  matchBlock.appendChild(matchInfo);
 
-  moreMatchesContainer.appendChild(li);
+  moreMatchesContainer.appendChild(matchBlock);
 }
 
 btnMoreMatches.addEventListener('click', () => {
@@ -150,4 +160,5 @@ function clearInputs2() {
   inpCountry2.value = '';
   inpScore.value = '';
   inpDate.value = '';
+  inpStage.value = '';
 }

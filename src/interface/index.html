@@ -80,15 +80,27 @@
             <div class="col-md-8">
               <h1>Partidos</h1>
               <div class="matches" id="matches-list">
-                <!-- Ejemplo con un partido, luego agrego mas-->
+                <!-- Partidos agregados  -->
                 <div class="match-block">
                   <div class="match-info">
                     <p>Fase de grupos · Jornada 3 de 3</p>
-                    <p>Jamaica 0 - 3 Venezuela</p>
+                    <p>Jamaica 0</p>
+                    <p>Venezuela 3</p>
                     <p>Fin · Dom, 30/6</p>
                   </div>
-                  <div class="match-video">
-                    <img src="video-jam-ven.jpg" alt="Video" />
+                  <div class="match-img">
+                    <img src="img-jam-ven.jpg" alt="img Jam vs Ven" />
+                  </div>
+                </div>
+                <div class="match-block">
+                  <div class="match-info">
+                    <p>Fase de grupos · Jornada 3 de 3</p>
+                    <p>Mexico 0</p>
+                    <p>Ecuador 0</p>
+                    <p>Fin · Dom, 30/6</p>
+                  </div>
+                  <div class="match-img">
+                    <img src="img-mex-ecu.jpg" alt="img Mex vs Ecuador" />
                   </div>
                 </div>
               </div>
@@ -103,23 +115,22 @@
             <div class="col-md-4">
               <!-- Tabla de posiciones -->
               <div class="positions">
-                <h2>Posiciones</h2>
+                <h1>Posiciones</h1>
                 <div class="group">
-                  <h3>Grupo A</h3>
-                  <table class="table table-striped">
+                  <h2>Grupo A</h2>
+                  <table class="table">
                     <thead>
                       <tr>
-                        <th>Club</th>
-                        <th>PJ</th>
-                        <th>G</th>
-                        <th>E</th>
-                        <th>P</th>
-                        <th>GF</th>
-                        <th>GC</th>
+                        <th scope="col">Club</th>
+                        <th scope="col">PJ</th>
+                        <th scope="col">G</th>
+                        <th scope="col">E</th>
+                        <th scope="col">P</th>
+                        <th scope="col">GF</th>
+                        <th scope="col">GC</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <!-- ejemplo con argentina, luego agrego mas paises -->
                       <tr>
                         <td>Argentina</td>
                         <td>3</td>
@@ -190,11 +201,17 @@
         aria-labelledby="nav-add-matches-tab"
       >
         <div class="container shadow bg-white rounded" id="alerts-add-matches">
+          <small class="text-muted">
+            Los campos marcados con
+            <span class="text-danger">*</span>
+            son obligatorios.
+          </small>
           <div class="row">
             <div class="col-sm pt-2 px-4">
               <h1 class="title">Agregar Partido</h1>
               <form id="add-matches-form">
                 <div class="col-sm">
+                  <span class="text-danger">*</span>
                   <label for="inpStage" class="form-label">Etapa:</label>
                   <input
                     type="text"
@@ -207,6 +224,7 @@
                 </div>
                 <div class="row">
                   <div class="col-sm">
+                    <span class="text-danger">*</span>
                     <label for="inp-Country1" class="form-label">Pais 1:</label>
                     <input
                       type="text"
@@ -218,6 +236,7 @@
                     />
                   </div>
                   <div class="col-sm">
+                    <span class="text-danger">*</span>
                     <label for="inp-Country2" class="form-label">Pais 2:</label>
                     <input
                       type="text"
@@ -231,23 +250,26 @@
                 </div>
                 <div class="row">
                   <div class="col-sm">
+                    <span class="text-danger">*</span>
                     <label for="inp-score" class="form-label">Resultado:</label>
                     <input
                       type="text"
                       class="form-control"
                       id="inp-score"
                       name="score"
-                      placeholder="Ej. 0 - 0"
+                      placeholder="Ej. 0 - 0 o (* - *)"
                       required
                     />
                   </div>
                   <div class="col-sm">
+                    <span class="text-danger">*</span>
                     <label for="inp-date" class="form-label">Fecha:</label>
                     <input
-                      type="date"
+                      type="text"
                       class="form-control"
                       id="inp-date"
                       name="date"
+                      placeholder="Ej. Fin · Dom 30/6"
                       required
                     />
                   </div>
