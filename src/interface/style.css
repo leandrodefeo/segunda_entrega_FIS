@@ -56,11 +56,6 @@
   font-weight: bold;
 }
 
-.stats-titulo {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
 .stats-tabs {
   display: flex;
   justify-content: space-between;

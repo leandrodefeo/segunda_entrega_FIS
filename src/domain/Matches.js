@@ -51,6 +51,16 @@ export class Matches {
     } \nDate: ${this.#date} stage: ${this.#stage} `;
   }
 
+  isSameMatch(otherMatch) {
+    return (
+      this.#Country1 === otherMatch.getCountry1() &&
+      this.#Country2 === otherMatch.getCountry2() &&
+      this.#date === otherMatch.getDate() &&
+      this.#score === otherMatch.getScore() &&
+      this.#stage === otherMatch.getStage()
+    );
+  }
+
   isValid() {
     if (
       this.#Country1 === undefined ||
